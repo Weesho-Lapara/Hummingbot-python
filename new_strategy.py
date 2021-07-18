@@ -33,7 +33,7 @@ class NewStrategy(StrategyPyBase):
 
     def tick(self, timestamp: float):
         if not self._connector_ready:
-            self._connector_ready = self._market_info.market
+            self._connector_ready = self._market_info.market.ready
             if not self._connector_ready:
                 self.logger().warning(f"{self._market_info.market.name} is not ready. Please wait...")
                 return
