@@ -1,6 +1,8 @@
+from decimal import Decimal
+
 from hummingbot.strategy.market_trading_pair_tuple import MarketTradingPairTuple
-from hummingbot.strategy.test_strategy import TestStrategy
-from hummingbot.strategy.test_strategy_config_map import test_strategy_config_map as c_map
+from hummingbot.strategy.new_strategy import NewStrategy
+from hummingbot.strategy.new_strategy.new_strategy_config_map import new_strategy_config_map as c_map
 
 
 def start(self):
@@ -9,8 +11,7 @@ def start(self):
 
     self._initialize_markets([(connector, [market])])
     base, quote = market.split("-")
-    market_info = MarketTradingPairTuple(
-        self.markets[connector], market, base, quote)
+    market_info = MarketTradingPairTuple(self.markets[connector], market, base, quote)
     self.market_trading_pair_tuples = [market_info]
 
-    self.strategy = TestStrategy(market_info)
+    self.strategy = NewStrategy(market_info)

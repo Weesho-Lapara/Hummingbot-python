@@ -1,5 +1,7 @@
 # Initializing the project
 
-from .test_strategy import TestStrategy
+from .new_strategy import NewStrategy
 
-__all__ = [TestStrategy]
+__all__ = [
+    NewStrategy
+    ]
